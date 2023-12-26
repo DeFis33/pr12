@@ -18,19 +18,26 @@ namespace pr12
             {
                 try
                 {
-                    Console.WriteLine("\nВведите любую цифру, чтобы запустить программу для нахождения подстроки из трёх букв, введённых с клавиатуры в исходной строке и замены на другую, также состоящую из трёх букв. (для выхода введите 0): ");
-                    int N = Convert.ToInt32(Console.ReadLine());
+                    Console.WriteLine("\nХотите ли бы вы запустить программу для нахождения подстроки из трёх букв, введённых с клавиатуры в исходной строке и замены на другую, также состоящую из трёх букв? (Да/Нет):");
+                    string a = Console.ReadLine();
 
-                    if (N == 0) // если N = 0, то завершаем программу
+                    if (a == "Нет")
                     {
                         Console.WriteLine("Программа завершена.\nДо свидания!");
                         break;
                     }
-                    else // иначе
+                    else if (a == "Да") // иначе, если
                     {
                         Console.Write("\nВведите строку: ");
                         string S = Console.ReadLine();
 
+                    }
+                    else // иначе
+                    {
+                        Console.ForegroundColor = ConsoleColor.Yellow;
+                        Console.WriteLine("Введите Да или Нет! Либо Выход. (Ввод ответа требуется с большой буквы)");
+                        Console.ForegroundColor = ConsoleColor.White;
+                        continue;
                     }
                 }
                 catch (FormatException e) // частное исключение
