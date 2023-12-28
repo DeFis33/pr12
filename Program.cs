@@ -10,6 +10,47 @@ namespace pr12
 {
     internal class Program
     {
+        static void Replacement()
+        {
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.Write("\nВведите исходную строку:");
+            Console.ForegroundColor = ConsoleColor.White;
+            string S = Console.ReadLine();
+
+            Console.ForegroundColor = ConsoleColor.DarkGreen;
+            Console.Write("\nВведите три буквы для поиска:");
+            Console.ForegroundColor = ConsoleColor.White;
+            string search = Console.ReadLine();
+
+            Console.ForegroundColor = ConsoleColor.DarkCyan;
+            Console.Write("\nВведите три буквы для замены:");
+            Console.ForegroundColor = ConsoleColor.White;
+            string replace = Console.ReadLine();
+
+            if (IsAllLetters(search) && IsAllLetters(replace) && search.Length == 3 && replace.Length == 3)
+            {
+                string result = Substring(S, search, replace);
+
+                Console.ForegroundColor = ConsoleColor.DarkMagenta;
+                Console.Write("\nРезультат замены:");
+                Console.ForegroundColor = ConsoleColor.White;
+                Console.WriteLine(result);
+            }
+            else
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("\nОшибка ввода. Пожалуйста, введите три буквы для поиска и три буквы для замены.");
+                Console.ForegroundColor = ConsoleColor.White;
+            }
+        }
+        static bool IsAllLetters(string str)
+        {
+            return str.All(char.IsLetter);
+        }
+        static string Substring(string S, string search, string replace)
+        {
+            return S.Replace(search, replace);
+        }
         static void Main(string[] args)
         {
             Console.ForegroundColor = ConsoleColor.White;
@@ -18,19 +59,18 @@ namespace pr12
             {
                 try
                 {
-                    Console.WriteLine("\nХотите ли бы вы запустить программу для нахождения подстроки из трёх букв, введённых с клавиатуры в исходной строке и замены на другую, также состоящую из трёх букв? (Да/Нет):");
+                    Console.WriteLine("\nХотите ли бы вы запустить программу для нахождения подстроки из трёх букв, введённых с клавиатуры в исходной строке \nи замены на другую, также состоящую из трёх букв? (Да/Нет):");
                     string a = Console.ReadLine();
 
                     if (a == "Нет")
                     {
-                        Console.WriteLine("Программа завершена.\nДо свидания!");
+                        Console.WriteLine("\nПрограмма завершена.\nДо свидания!");
                         break;
                     }
                     else if (a == "Да") // иначе, если
                     {
-                        Console.Write("\nВведите строку: ");
-                        string S = Console.ReadLine();
-
+                        Replacement();
+                        continue;
                     }
                     else // иначе
                     {
@@ -51,10 +91,9 @@ namespace pr12
                     Console.ForegroundColor = ConsoleColor.Red;
                     Console.WriteLine($"\nОшибка ввода \n" + e.Message); // вывод ошибки на экран
                     Console.ForegroundColor = ConsoleColor.White;
-                    Console.ReadKey();
                 }
-                Console.ReadKey();
             }
         }
     }
 }
+// Александр Пушкин начал писать свои первые произведения уже в семь лет.
