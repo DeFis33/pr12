@@ -80,10 +80,10 @@ namespace pr12
                         continue;
                     }
                 }
-                catch (FormatException e) // частное исключение
+                catch (FormatException fe) // частное исключение
                 {
                     Console.ForegroundColor = ConsoleColor.Red;
-                    Console.WriteLine($"\nОшибка ввода \n" + e.Message); // вывод ошибки на экран
+                    Console.WriteLine($"\nОшибка ввода \n" + fe.Message); // вывод ошибки на экран
                     Console.ForegroundColor = ConsoleColor.White;
                 }
                 catch (Exception e) // общее исключение
