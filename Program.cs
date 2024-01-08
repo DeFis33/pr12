@@ -67,12 +67,12 @@ namespace pr12
                         Console.WriteLine("\nПрограмма завершена.\nДо свидания!");
                         break;
                     }
-                    else if (a == "Да") // иначе, если
+                    else if (a == "Да")
                     {
                         Replacement();
                         continue;
                     }
-                    else // иначе
+                    else
                     {
                         Console.ForegroundColor = ConsoleColor.Yellow;
                         Console.WriteLine("Введите Да или Нет! Либо Выход. (Ввод ответа требуется с большой буквы)");
@@ -80,20 +80,19 @@ namespace pr12
                         continue;
                     }
                 }
-                catch (FormatException fe) // частное исключение
+                catch (FormatException fe)
                 {
                     Console.ForegroundColor = ConsoleColor.Red;
-                    Console.WriteLine($"\nОшибка ввода \n" + fe.Message); // вывод ошибки на экран
+                    Console.WriteLine($"\nОшибка ввода \n" + fe.Message);
                     Console.ForegroundColor = ConsoleColor.White;
                 }
-                catch (Exception e) // общее исключение
+                catch (Exception e)
                 {
                     Console.ForegroundColor = ConsoleColor.Red;
-                    Console.WriteLine($"\nОшибка ввода \n" + e.Message); // вывод ошибки на экран
+                    Console.WriteLine($"\nОшибка ввода \n" + e.Message);
                     Console.ForegroundColor = ConsoleColor.White;
                 }
             }
         }
     }
 }
-// Александр Пушкин начал писать свои первые произведения уже в семь лет.
