@@ -5,6 +5,7 @@
 //*********************************************************************
 
 using System;
+using System.Linq;
 
 namespace pr12
 {
@@ -27,7 +28,7 @@ namespace pr12
             Console.ForegroundColor = ConsoleColor.White;
             string replace = Console.ReadLine();
 
-            if (IsAllLetters(search) && IsAllLetters(replace) && search.Length == 3 && replace.Length == 3)
+            if (Letters(search) && Letters(replace) && search.Length == 3 && replace.Length == 3)
             {
                 string result = Substring(S, search, replace);
 
@@ -43,9 +44,9 @@ namespace pr12
                 Console.ForegroundColor = ConsoleColor.White;
             }
         }
-        static bool IsAllLetters(string str)
+        static bool Letters(string str)
         {
-            return str.All(char.IsLetter);
+            return str.All(Char.IsLetter);
         }
         static string Substring(string S, string search, string replace)
         {
@@ -59,7 +60,7 @@ namespace pr12
             {
                 try
                 {
-                    Console.WriteLine("\nХотите ли бы вы запустить программу для нахождения подстроки из трёх букв, введённых с клавиатуры в исходной строке \nи замены на другую, также состоящую из трёх букв? (Да/Нет):");
+                    Console.WriteLine("\nХотите ли вы запустить программу для нахождения подстроки из трёх букв, введённых с клавиатуры в исходной строке \nи замены на другую, также состоящую из трёх букв? (Да/Нет):");
                     string a = Console.ReadLine();
 
                     if (a == "Нет")
